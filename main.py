@@ -6,7 +6,10 @@ nato_dict = {}
 for (index, row) in nato_df.iterrows():
     nato_dict.__setitem__(row['letter'], row['code'])
 
-print(nato_dict)
+# Create a list of the phonetic code words from a word that the user inputs.
+word = input("Enter a word: ")
+code_list = []
 
-# TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-
+for letter in word:
+    code_list += [code for key, code in nato_dict.items() if letter.upper() == str(key)]
+print(code_list)
